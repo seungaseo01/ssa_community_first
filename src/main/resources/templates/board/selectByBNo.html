@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/common/main.css">
+</head>
+<body>
+
+<h1>게시물 상세 페이지</h1>
+
+<table border="1">
+
+
+    <div class="row">
+        <div>번호</div>
+        <div>[[${boardOne.bNo}]]</div>
+    </div>
+
+    <div class="row">
+        <div>
+            <div>제목</div>
+            <div>[[${boardOne.bTitle}]]</div>
+        </div>
+
+        <div>
+            <div>분류</div>
+            <div>[[${boardOne.bDivide}]]</div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div>작성자</div>
+        <div>[[${boardOne.bWriter}]]</div>
+    </div>
+
+
+    <div class="row">
+        <div>
+            <div>작성일</div>
+            <div>[[${boardOne.bRegdate}]]</div>
+        </div>
+        <div>
+            <div>조회</div>
+            <div>[[${boardOne.bViewcnt}]]</div>
+        </div>
+        <div>
+            <div>좋아요</div>
+            <div>[[${boardOne.bLike}]]</div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div>내용</div>
+        <div>[[${boardOne.bContent}]]</div>
+    </div>
+
+
+
+</table>
+
+</body>
+</html>

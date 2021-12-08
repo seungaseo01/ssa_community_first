@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>RegBoard</title>
 </head>
 <body>
 
 <h1>카테고리 생성 페이지</h1>
 
 <form action="/board/regBoard" method="post">
-    카테고리 명 : <input type="text" name="cNo">
+    카테고리 명 : <input type="text" name="category.cNo">
     분류 : <select name="bDivide">
             <option></option>
             <option>후기</option>
@@ -18,7 +18,7 @@
             </select>
     제목 : <input type="text" name="bTitle">
     작성자 : <input type="text" name="bWriter">
-    비밀글 : <input type="text" name="bSecret">
+    비밀글 : <input type="checkbox" name="bSecret" value="1">
     내용 : <input type="text" name="bContent">
     <input type="submit" value="등록하기">
 </form>
