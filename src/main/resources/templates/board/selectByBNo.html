@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/css/common/main.css">
+    <link rel="stylesheet" href="/css/board/selectByBNo.css">
 </head>
 <body>
-
+<div id="wrap">
 <h1>게시물 상세 페이지</h1>
-
-<table border="1">
-
 
     <div class="row">
         <div>번호</div>
@@ -52,15 +49,19 @@
 
     </div>
 
-
     <div class="row">
         <div>내용</div>
         <div>[[${boardOne.bContent}]]</div>
     </div>
 
+    <div class="row">
+        <div><a th:href="@{/board/update?bNo=}+${boardOne.bNo}">수정하기</a></div>
+        <div><a th:href="@{/board/delete?bNo=}+${boardOne.bNo}">삭제하기</a></div>
+    </div>
+
+</div>
 
 
-</table>
 
 </body>
 </html>

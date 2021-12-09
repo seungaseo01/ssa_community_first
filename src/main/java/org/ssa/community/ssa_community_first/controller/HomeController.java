@@ -11,4 +11,14 @@ public class HomeController {
         return "index/index";
     }
 
+    @GetMapping("/regCategoryForm")
+    public String regCategory(){
+        return "board/regCategoryForm";
+    }
+
+    @GetMapping("/regBoardForm")
+    public String regBoard(){
+        return "board/regBoardForm";
+    }
+
 }

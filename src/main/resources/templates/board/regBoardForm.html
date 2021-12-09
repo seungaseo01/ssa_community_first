@@ -1,27 +1,73 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
     <title>RegBoard</title>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
+<%-- 상품 상세 --%>
+<div id="detail">
+    <div id="detail_info">
+        <div class="info_holder">
+            <div class="row">
+                <h2>상품 상세</h2>
+            </div>
 
-<h1>카테고리 생성 페이지</h1>
+            <div class="row">
+                <div class="key_col"><label for="">제목</label></div>
+                <div class="value_col"><input type="text" class="item_input" name="title"
+                                              value="${requestScope.result.title}"></div>
+            </div>
 
-<form action="/board/regBoard" method="post">
-    카테고리 명 : <input type="text" name="category.cNo">
-    분류 : <select name="bDivide">
-            <option></option>
-            <option>후기</option>
-            <option>추천</option>
-            <option>이슈</option>
-            </select>
-    제목 : <input type="text" name="bTitle">
-    작성자 : <input type="text" name="bWriter">
-    비밀글 : <input type="checkbox" name="bSecret" value="1">
-    내용 : <input type="text" name="bContent">
-    <input type="submit" value="등록하기">
-</form>
+            <div class="row">
+                <div class="key_col"><label for="">썸네일</label></div>
+                <div class="value_col">
+                    <input type="hidden" class="item_input" name="image" value="${requestScope.result.image}">
+                    <input type="file" name="uploadThumb">
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="key_col"><label for="">정보제공고시</label></div>
+                <div class="value_col">
+                    <button>선택하기</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="image_holder">
+
+            <c:if test="${requestScope.result.image ne null}">
+                <img src="upload/${requestScope.result.image}/thumb_130.png" alt="썸네일 이미지"/>
+            </c:if>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- SmartEditor2 -->
+        <input id="seUpload" type="file" style="display: none" multiple accept="image/jpeg, image/png, image/gif">
+        <%--            <input type="hidden" class="item_input" name="text">--%>
+        <textarea name="smartEditor" id="smartEditor"
+                  style="width: 100%; height: 412px;">${requestScope.result.text}</textarea>
+    </div>
+
+</div>
+
+
+<%-- publish --%>
+<button onclick="save()">등록하기</button>
+<%-- non-publish --%>
+<c:if test="${requestScope.result.publish ne true}">
+    <button onclick="tempSave()">임시저장</button>
+    <button onclick="cancel()">삭제하기</button>
+</c:if>
+
 
 </body>
 </html>
