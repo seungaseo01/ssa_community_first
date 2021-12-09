@@ -21,9 +21,9 @@ public class BoardTest {
 
             board.setCategory(Category.builder().cNo(1).build());
             board.setBDivide("");
-            board.setBTitle("Sample board"+i);
+            board.setBTitle("Sample title"+i);
             board.setBWriter("writer"+i);
-            board.setBContent("Sample board"+i);
+            board.setBContent("Sample content"+i);
 
             boardRepository.save(board);
         }
