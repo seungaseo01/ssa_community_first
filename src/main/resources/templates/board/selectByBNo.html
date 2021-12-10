@@ -51,7 +51,12 @@
 
     <div class="row">
         <div>내용</div>
-        <div>[[${boardOne.bContent}]]</div>
+        <input type="hidden" name="testCon" id="testCon" th:value="${boardOne.bContent}">
+        <div id="innerCon">
+
+
+
+        </div>
     </div>
 
     <div class="row">
@@ -62,6 +67,23 @@
 </div>
 
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </body>
+<script>
+
+    $(function(){
+
+
+        var test = $("#testCon").val();
+
+        $("#innerCon").html(test);
+
+
+    })
+
+</script>
+
+
+
+
 </html>
