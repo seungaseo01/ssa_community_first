@@ -1,30 +1,62 @@
 package org.ssa.community.ssa_community_first.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.springframework.stereotype.Controller;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
 @Table(name = "total_board")
-@Data
+@Getter
+@Setter
+@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class TotalBoard {
-    private Long bNo;
-    private Long cNo;
+
+    @Id
+    @Column(name = "b_no")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int bNo;
+
+
+    @Column(name = "b_divide")
     private String bDivide;
+
+    @Column(name = "b_title")
     private String bTitle;
-    private Long bSecret;
+
+    @Column(name = "b_secret")
+    private int bSecret;
+
+    @Column(name = "b_content")
     private String bContent;
+
+    @Column(name = "b_writer")
     private String bWriter;
-    private Long bLike;
-    private Date bRegdate;
-    private Date bModdate;
-    private Long bViewcnt;
+
+    @Column(name = "b_like")
+    private int bLike;
+
+    @Column(name = "b_regdate")
+    private Timestamp bRegdate;
+
+    @Column(name = "b_moddate")
+    private Timestamp bModdate;
+
+    @Column(name = "b_viewcnt")
+    private int bViewcnt;
+
+    @ManyToOne
+    @JoinColumn(name = "c_no")
+    private Category category;
+
+
+
+
 }
